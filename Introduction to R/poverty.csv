@@ -1,0 +1,97 @@
+BirthRt,DeathRt,InfMort,LExpM,LExpF,GNP,Region,Country
+24.7,5.7,30.8,69.6,75.5,600,Eastern Europe,Albania
+12.5,11.9,14.4,68.3,74.7,2250,Eastern Europe,Bulgaria
+13.4,11.7,11.3,71.8,77.7,2980,Eastern Europe,Czechoslovakia
+11.6,13.4,14.8,65.4,73.8,2780,Eastern Europe,Hungary
+14.3,10.2,16,67.2,75.7,1690,Eastern Europe,Poland
+13.6,10.7,26.9,66.5,72.4,1640,Eastern Europe,Romania
+14,9,20.2,68.6,74.5,NA,Eastern Europe,Yugoslavia
+17.7,10,23,64.6,74,2242,Eastern Europe,USSR
+15.2,9.5,13.1,66.4,75.9,1880,Eastern Europe,Byelorussian_SSR
+13.4,11.6,13,66.4,74.8,1320,Eastern Europe,Ukrainian_SSR
+20.7,8.4,25.7,65.5,72.7,2370,South & Central America,Argentina
+46.6,18,111,51,55.4,630,South & Central America,Bolivia
+28.6,7.9,63,62.3,67.6,2680,South & Central America,Brazil
+23.4,5.8,17.1,68.1,75.1,1940,South & Central America,Chile
+27.4,6.1,40,63.4,69.2,1260,South & Central America,Columbia
+32.9,7.4,63,63.4,67.6,980,South & Central America,Ecuador
+28.3,7.3,56,60.4,66.1,330,South & Central America,Guyana
+34.8,6.6,42,64.4,68.5,1110,South & Central America,Paraguay
+32.9,8.3,109.9,56.8,66.5,1160,South & Central America,Peru
+18,9.6,21.9,68.4,74.9,2560,South & Central America,Uruguay
+27.5,4.4,23.3,66.7,72.8,2560,South & Central America,Venezuela
+29,23.2,43,62.1,66,2490,South & Central America,Mexico
+12,10.6,7.9,70,76.8,15540,Europe Mostly,Belgium
+13.2,10.1,5.8,70.7,78.7,26040,Europe Mostly,Finland
+12.4,11.9,7.5,71.8,77.7,22080,Europe Mostly,Denmark
+13.6,9.4,7.4,72.3,80.5,19490,Europe Mostly,France
+11.4,11.2,7.4,71.8,78.4,22320,Europe Mostly,Germany
+10.1,9.2,11,65.4,74,5990,Europe Mostly,Greece
+15.1,9.1,7.5,71,76.7,9550,Europe Mostly,Ireland
+9.7,9.1,8.8,72,78.6,16830,Europe Mostly,Italy
+13.2,8.6,7.1,73.3,79.9,17320,Europe Mostly,Netherlands
+14.3,10.7,7.8,67.2,75.7,23120,Europe Mostly,Norway
+11.9,9.5,13.1,66.5,72.4,7600,Europe Mostly,Portugal
+10.7,8.2,8.1,72.5,78.6,11020,Europe Mostly,Spain
+14.5,11.1,5.6,74.2,80,23660,Europe Mostly,Sweden
+12.5,9.5,7.1,73.9,80,34064,Europe Mostly,Switzerland
+13.6,11.5,8.4,72.2,77.9,16100,Europe Mostly,U.K.
+14.9,7.4,8,73.3,79.6,17000,Europe Mostly,Austria
+9.9,6.7,4.5,75.9,81.8,25430,Europe Mostly,Japan
+14.5,7.3,7.2,73,79.8,20470,Europe Mostly,Canada
+16.7,8.1,9.1,71.5,78.3,21790,Europe Mostly,U.S.A.
+40.4,18.7,181.6,41,42,168,Middle East,Afghanistan
+28.4,3.8,16,66.8,69.4,6340,Middle East,Bahrain
+42.5,11.5,108.1,55.8,55,2490,Middle East,Iran
+42.6,7.8,69,63,64.8,3020,Middle East,Iraq
+22.3,6.3,9.7,73.9,77.4,10920,Middle East,Israel
+38.9,6.4,44,64.2,67.8,1240,Middle East,Jordan
+26.8,2.2,15.6,71.2,75.4,16150,Middle East,Kuwait
+31.7,8.7,48,63.1,67,NA,Middle East,Lebanon
+45.6,7.8,40,62.2,65.8,5220,Middle East,Oman
+42.1,7.6,71,61.7,65.2,7050,Middle East,Saudi_Arabia
+29.2,8.4,76,62.5,65.8,1630,Middle East,Turkey
+22.8,3.8,26,68.6,72.9,19860,Middle East,United_Arab_Emirates
+42.2,15.5,119,56.9,56,210,Asia,Bangladesh
+41.4,16.6,130,47,49.9,NA,Asia,Cambodia
+21.2,6.7,32,68,70.9,380,Asia,China
+11.7,4.9,6.1,74.3,80.1,14210,Asia,Hong_Kong
+30.5,10.2,91,52.5,52.1,350,Asia,India
+28.6,9.4,75,58.5,62,570,Asia,Indonesia
+23.5,18.1,25,66.2,72.7,NA,Asia,Korea
+31.6,5.6,24,67.5,71.6,2320,Asia,Malaysia
+36.1,8.8,68,60,62.5,110,Asia,Mongolia
+39.6,14.8,128,50.9,48.1,170,Asia,Nepal
+30.3,8.1,107.7,59,59.2,380,Asia,Pakistan
+33.2,7.7,45,62.5,66.1,730,Asia,Philippines
+17.8,5.2,7.5,68.7,74,11160,Asia,Singapore
+21.3,6.2,19.4,67.8,71.7,470,Asia,Sri_Lanka
+22.3,7.7,28,63.8,68.9,1420,Asia,Thailand
+31.8,9.5,64,63.7,67.9,NA,Asia,Vietnam
+35.5,8.3,74,61.6,63.3,2060,Africa,Algeria
+47.2,20.2,137,42.9,46.1,610,Africa,Angola
+48.5,11.6,67,52.3,59.7,2040,Africa,Botswana
+46.1,14.6,73,50.1,55.3,1010,Africa,Congo
+38.8,9.5,49.4,57.8,60.3,600,Africa,Egypt
+48.6,20.7,137,42.4,45.6,120,Africa,Ethiopia
+39.4,16.8,103,49.9,53.2,390,Africa,Gabon
+47.4,21.4,143,41.4,44.6,260,Africa,Gambia
+44.4,13.1,90,52.2,55.8,390,Africa,Ghana
+47,11.3,72,56.5,60.5,370,Africa,Kenya
+44,9.4,82,59.1,62.6,5310,Africa,Libya
+48.3,25,130,38.1,41.2,200,Africa,Malawi
+35.5,9.8,82,59.1,62.5,960,Africa,Morocco
+45,18.5,141,44.9,48.1,80,Africa,Mozambique
+44,12.1,135,55,57.5,1030,Africa,Namibia
+48.5,15.6,105,48.8,52.2,360,Africa,Nigeria
+48.2,23.4,154,39.4,42.6,240,Africa,Sierra_Leone
+50.1,20.2,132,43.4,46.6,120,Africa,Somalia
+32.1,9.9,72,57.5,63.5,2530,Africa,South_Africa
+44.6,15.8,108,48.6,51,480,Africa,Sudan
+46.8,12.5,118,42.9,49.5,810,Africa,Swaziland
+31.1,7.3,52,64.9,66.4,1440,Africa,Tunisia
+52.2,15.6,103,49.9,52.7,220,Africa,Uganda
+50.5,14,106,51.3,54.7,110,Africa,Tanzania
+45.6,14.2,83,50.3,53.7,220,Africa,Zaire
+51.1,13.7,80,50.4,52.5,420,Africa,Zambia
+41.7,10.3,66,56.5,60.1,640,Africa,Zimbabwe

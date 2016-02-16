@@ -1,0 +1,259 @@
+"","Country","gnp_pc"
+"1","Aruba",NA
+"2","Andorra",NA
+"3","Afghanistan",NA
+"4","Angola",1666
+"5","Albania",3480
+"6","Andean Region",NA
+"7","Arab World",12202.8330094336
+"8","United Arab Emirates",25639
+"9","Argentina",20036
+"10","Armenia",6609
+"11","American Samoa",NA
+"12","Antigua and Barbuda",NA
+"13","Australia",38754
+"14","Austria",38256
+"15","Azerbaijan",6896
+"16","Burundi",NA
+"17","Belgium",46005
+"18","Benin",NA
+"19","Burkina Faso",1707
+"20","Bangladesh",2162
+"21","Bulgaria",12051
+"22","Bahrain",9666
+"23","Bahamas, The",NA
+"24","Bosnia and Herzegovina",12831
+"25","Belarus",13127
+"26","Belize",NA
+"27","Bermuda",NA
+"28","Bolivia",6648
+"29","Brazil",10406
+"30","Barbados",19884
+"31","Brunei Darussalam",NA
+"32","Bhutan",NA
+"33","Botswana",NA
+"34","Sub-Saharan Africa (IFC classification)",NA
+"35","Central African Republic",NA
+"36","Canada",40447
+"37","East Asia and the Pacific (IFC classification)",NA
+"38","Central Europe and the Baltics",11780.4721441782
+"39","Europe and Central Asia (IFC classification)",NA
+"40","Switzerland",36234
+"41","Channel Islands",NA
+"42","Chile",21570
+"43","China",2921
+"44","Cote d'Ivoire",3274
+"45","Latin America and the Caribbean (IFC classification)",NA
+"46","Middle East and North Africa (IFC classification)",NA
+"47","Cameroon",2787
+"48","Congo, Rep.",NA
+"49","Colombia",14144
+"50","Comoros",NA
+"51","Cabo Verde",NA
+"52","Costa Rica",14701
+"53","South Asia (IFC classification)",NA
+"54","Caribbean small states",NA
+"55","Cuba",NA
+"56","Curacao",NA
+"57","Cayman Islands",NA
+"58","Cyprus",24309
+"59","Czech Republic",16065
+"60","Germany",36428
+"61","Djibouti",NA
+"62","Dominica",NA
+"63","Denmark",37690
+"64","Dominican Republic",8114
+"65","Algeria",11235
+"66","East Asia & Pacific (developing only)",3691.19865622367
+"67","East Asia & Pacific (all income levels)",6911.88992995771
+"68","Europe & Central Asia (developing only)",11006.917573502
+"69","Europe & Central Asia (all income levels)",23885.0013637359
+"70","Ecuador",12329
+"71","Egypt, Arab Rep.",8953
+"72","Euro area",37529.5017415295
+"73","Eritrea",NA
+"74","Spain",35650
+"75","Estonia",17293
+"76","Ethiopia",1024
+"77","European Union",31953.1446567034
+"78","Fragile and conflict affected situations",3922.28377319515
+"79","Finland",35070
+"80","Fiji",NA
+"81","France",44533
+"82","Faeroe Islands",NA
+"83","Micronesia, Fed. Sts.",NA
+"84","Gabon",NA
+"85","United Kingdom",36477
+"86","Georgia",8733
+"87","Ghana",2837
+"88","Guinea",NA
+"89","Gambia, The",NA
+"90","Guinea-Bissau",NA
+"91","Equatorial Guinea",NA
+"92","Greece",26392
+"93","Grenada",NA
+"94","Greenland",NA
+"95","Guatemala",11918
+"96","Guam",NA
+"97","Guyana",NA
+"98","High income",34768.1954093824
+"99","Hong Kong SAR, China",40871
+"100","Honduras",NA
+"101","Heavily indebted poor countries (HIPC)",1834.45110772167
+"102","Croatia",17995
+"103","Haiti",NA
+"104","Hungary",12696
+"105","Indonesia",6707
+"106","Isle of Man",NA
+"107","India",3600
+"108","Not classified",NA
+"109","Ireland",37133
+"110","Iran, Islamic Rep.",16846
+"111","Iraq",5136
+"112","Iceland",32370
+"113","Israel",36700
+"114","Italy",41449
+"115","Jamaica",10062
+"116","Jordan",17176
+"117","Japan",36518
+"118","Kazakhstan",13602
+"119","Kenya",2723
+"120","Kyrgyz Republic",6823
+"121","Cambodia",2453
+"122","Kiribati",NA
+"123","St. Kitts and Nevis",NA
+"124","Korea, Rep.",22807
+"125","Kosovo",NA
+"126","Kuwait",9359
+"127","Latin America & Caribbean (developing only)",13718.3004102383
+"128","Lao PDR",NA
+"129","Lebanon",NA
+"130","Liberia",NA
+"131","Libya",NA
+"132","St. Lucia",9626
+"133","Latin America & Caribbean (all income levels)",14046.8256770582
+"134","Latin America and the Caribbean",NA
+"135","Least developed countries: UN classification",1928.69389231319
+"136","Low income",1834.227419466
+"137","Liechtenstein",NA
+"138","Sri Lanka",9281
+"139","Lower middle income",4919.43580712843
+"140","Low & middle income",5173.33314829947
+"141","Lesotho",NA
+"142","Lithuania",12815
+"143","Luxembourg",48536
+"144","Latvia",12111
+"145","Macao SAR, China",NA
+"146","St. Martin (French part)",NA
+"147","Morocco",7902
+"148","Mexico and Central America",NA
+"149","Monaco",NA
+"150","Moldova",9980
+"151","Madagascar",1524
+"152","Maldives",NA
+"153","Middle East & North Africa (all income levels)",14620.2392034013
+"154","Mexico",17498
+"155","Marshall Islands",NA
+"156","Middle income",5535.38870872516
+"157","Macedonia, FYR",14101
+"158","Mali",2633
+"159","Malta",25219
+"160","Myanmar",2040
+"161","Middle East & North Africa (developing only)",12094.5578439258
+"162","Montenegro",NA
+"163","Mongolia",NA
+"164","Northern Mariana Islands",NA
+"165","Mozambique",2198
+"166","Mauritania",NA
+"167","Mauritius",NA
+"168","Malawi",1260
+"169","Malaysia",15098
+"170","North America",48618.1320050492
+"171","Namibia",NA
+"172","New Caledonia",NA
+"173","Niger",1657
+"174","Nigeria",3327
+"175","Nicaragua",NA
+"176","Netherlands",38857
+"177","High income: nonOECD",15670.7578241822
+"178","Norway",41107
+"179","Nepal",NA
+"180","New Zealand",30639
+"181","High income: OECD",38867.3258010752
+"182","OECD members",36307.3870170198
+"183","Oman",20126
+"184","Other small states",NA
+"185","Pakistan",6713
+"186","Panama",NA
+"187","Peru",7911
+"188","Philippines",6021
+"189","Palau",NA
+"190","Papua New Guinea",NA
+"191","Poland",12369
+"192","Puerto Rico",NA
+"193","Korea, Dem. Rep.",NA
+"194","Portugal",24197
+"195","Paraguay",NA
+"196","Pacific island small states",NA
+"197","French Polynesia",NA
+"198","Qatar",12125
+"199","Romania",4739
+"200","Russian Federation",13002
+"201","Rwanda",NA
+"202","South Asia",3749.75583695108
+"203","Saudi Arabia",30770
+"204","Southern Cone Extended",NA
+"205","Sudan",3279
+"206","Senegal",3356
+"207","Singapore",29185
+"208","Solomon Islands",NA
+"209","Sierra Leone",NA
+"210","El Salvador",NA
+"211","San Marino",NA
+"212","Somalia",NA
+"213","Serbia",NA
+"214","Sub-Saharan Africa (developing only)",2742.23046677942
+"215","South Sudan",NA
+"216","Sub-Saharan Africa (all income levels)",2742.23046677942
+"217","Small states",NA
+"218","Sao Tome and Principe",NA
+"219","Suriname",NA
+"220","Slovak Republic",15247
+"221","Slovenia",21328
+"222","Sweden",34386
+"223","Swaziland",NA
+"224","Sint Maarten (Dutch part)",NA
+"225","Seychelles",NA
+"226","Syrian Arab Republic",24876
+"227","Turks and Caicos Islands",NA
+"228","Chad",NA
+"229","Togo",NA
+"230","Thailand",9744
+"231","Tajikistan",5186
+"232","Turkmenistan",6827
+"233","Timor-Leste",NA
+"234","Tonga",NA
+"235","Trinidad and Tobago",27643
+"236","Tunisia",11847
+"237","Turkey",16366
+"238","Tuvalu",NA
+"239","Tanzania",1081
+"240","Uganda",1328
+"241","Ukraine",10447
+"242","Upper middle income",5966.32833261617
+"243","Uruguay",19598
+"244","United States",49505
+"245","Uzbekistan",9377
+"246","St. Vincent and the Grenadines",NA
+"247","Venezuela, RB",28465
+"248","Virgin Islands (U.S.)",NA
+"249","Vietnam",2567
+"250","Vanuatu",NA
+"251","West Bank and Gaza",NA
+"252","World",12002.018926997
+"253","Samoa",NA
+"254","Yemen, Rep.",11531
+"255","South Africa",12704
+"256","Congo, Dem. Rep.",1103
+"257","Zambia",1809
+"258","Zimbabwe",3053
