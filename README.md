@@ -1,9 +1,10 @@
 # R-Trainings
 Storing code and related documents for Urban Institute R trainings.
 
-# Additional Resources:
-
+# Additional Resources (More advanced material is further down the list):
 <ul>
+<ul><a href="https://cran.r-project.org/doc/contrib/Torfs+Brauer-Short-R-Intro.pdf">Installation and Setup</a></ul>
+<ul><a href="http://swirlstats.com/students.html">Swirl! An Introduction to R in R</a></ul>
 <li><a href="http://www.statmethods.net/">Quick-R - a great reference for common tasks and learning R;</a></li>
 <li><a href="https://science.nature.nps.gov/im/datamgmt/statistics/r/documents/r_for_sas_spss_users.pdf">R For SAS and SPSS Users;</a></li>
 <li><a href="http://scc.stat.ucla.edu/page_attachments/0000/0073/migrate_09S_1.pdf">Migrating to R for SAS/SPSS/STATA Users;</a></li>
