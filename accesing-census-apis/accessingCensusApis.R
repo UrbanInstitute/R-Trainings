@@ -21,8 +21,8 @@ censuskey <- "18c7867f214ef46d3d718b8ed6f7c97680a52fb7"
 # We'll need XML installed to be able to read in Census API information tables
 # install.packages("XML")
 
-# 'Source' tells R to run the script, in this case loading the Census API functions and a list a state fips codes
-source("accesing-census-apis/getCensusApi.R")
+# 'Source' tells R to run the script, in this case loading the Census API functions
+source("https://raw.githubusercontent.com/UrbanInstitute/R-Trainings/master/accesing-census-apis/getCensusApi.R")
 # getCensusApi function takes four arguments:
 # data-url (root URL of the API, e.g. 'http://api.census.gov/data/2000/sf3')
 # key (your census API key, saved above)
@@ -38,11 +38,10 @@ head(apis)
 # General information: http://www.census.gov/data/developers/data-sets/decennial-census-data.html
 # 2000 decennial datasets: http://api.census.gov/data/2000.html
 # "Summary File 3 consists of 813 detailed tables of Census 2000 social, economic and housing characteristics compiled from a sample of approximately 19 million housing units (about 1 in 6 households) that received the Census 2000 long-form questionnaire."
-# List of available variables: http://api.census.gov/data/2000/sf3/variables.html
 ########################################################################################################
 # URL of your API
 sf3_2000_api <- "http://api.census.gov/data/2000/sf3"
-# Let's see what variables are available
+# Let's see what variables are available - from http://api.census.gov/data/2000/sf3/variables.html
 vars2000 <- listCensusVars(sf3_2000_api)
 
 # Variables to get - total population, median household income, median gross rent
