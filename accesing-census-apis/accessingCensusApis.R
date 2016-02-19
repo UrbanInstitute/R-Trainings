@@ -9,8 +9,6 @@
 
 # Paste the key that Census sent you - it should be a string of letters and numbers
 censuskey <- "PASTEYOURKEYHERE"
-# SELF - DELETE THIS BEFORE PRESENTATION
-censuskey <- "18c7867f214ef46d3d718b8ed6f7c97680a52fb7"
 
 # View an example response of population and median household income by county from the 2000 decennial Census - paste this url into your web browser:
 # http://api.census.gov/data/2000/sf3?get=NAME,P001001,P053001&for=county:*
