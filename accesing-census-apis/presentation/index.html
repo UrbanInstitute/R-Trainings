@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Census API + R Presentation</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+
+    <!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+</head>
+
+<body>
+
+    <div class="reveal">
+
+        <!-- Any section element inside of this container is displayed as a slide -->
+        <div class="slides">
+            <section>
+                <h1>Accessing Census data via API</h1>
+                <h3>R Users Group</h3>
+                <p>
+                    March 2, 2016
+                </p>
+            </section>
+
+            <section>
+                <h2>Getting started - request an API key</h2>
+                <a href="http://api.census.gov/data/key_signup.html" target="_blank">http://api.census.gov/data/key_signup.html</a>
+                <p>Save this email!</p>
+                <img src="img/keyemail.png">
+            </section>
+
+            <section>
+                <h2>How do we access Census data?</h2>
+                <a href="http://factfinder.census.gov/faces/tableservices/jsf/pages/productview.xhtml?pid=ACS_14_5YR_S0101&prodType=table" target="_blank"><img class="fragment" src="img/factfinder.png"></a>
+            </section>
+
+            <section>
+                <h2>Application</h2>
+                <h2>Program</h2>
+                <h2>Interface</h2>
+            </section>
+
+            <section>
+                <h2>API pros</h2>
+                <ul>
+                    <li class="fragment">Get data directly from source</li>
+                    <li class="fragment">Fully reproducible</li>
+                    <li class="fragment">Retrieve lots of data at once</li>
+                    <li class="fragment">Read data directly into R - no export/import</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Cons</h2>
+                <ul>
+                    <li class="fragment">Need to understand Census geographies and variables</li>
+                </ul>
+                <p class="fragment">R can do everything for you besides reading the documentation</p>
+                <p class="fragment">(But some functions can help with that)</p>
+            </section>
+
+            <section>
+                <p><a href="http://api.census.gov/data/2000/sf3?get=NAME,P001001,P053001&for=state:*" target="_blank">http://api.census.gov/data/2000/sf3?get=NAME,P001001,P053001&for=state:*</a>
+                </p>
+                <img class="fragment" src="img/webresponse.png">
+            </section>
+
+            <section>
+                <h2>Install censusapi package</h2>
+                <pre><code class="hljs" data-trim contenteditable>
+install.packages("devtools")
+devtools::install_github("hrecht/censusapi")
+
+# Load the library
+library("censusapi")
+                </code></pre>
+            </section>
+
+            <section>
+                <h2>getCensus function</h2>
+                <h4>Four required arguments:</h4>
+
+                <p class="fragment">1. apiurl
+                    <pre class="fragment"><code class="hljs" data-trim contenteditable>
+"http://api.census.gov/data/2014/acs5"
+                </code></pre>
+                </p>
+                <p class="fragment">2. key
+                    <br/>string emailed by Census</p>
+                <p class="fragment">3. vars
+                    <pre class="fragment"><code class="hljs" data-trim contenteditable>
+c("B01001_001E", "B19013_001E", "B17010_017E", "B17010_037E")
+                </code></pre></p>
+                <p class="fragment">4. region
+                    <pre class="fragment"><code class="hljs" data-trim contenteditable>
+"county:*"
+                </code></pre></p>
+
+            </section>
+
+
+            <section>
+                <pre><code class="hljs" data-trim contenteditable>
+data2014 <- getCensus(apiurl="http://api.census.gov/data/2014/acs5", 
+    key=censuskey, 
+    vars=c("B01001_001E", "B19013_001E",
+    "B17010_017E", "B17010_037E"), 
+    region="county:*")
+View(data2014)
+                </code></pre>
+                <img class="fragment" src="img/data2014.png">
+            </section>
+
+        </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'none', // none/fade/slide/convex/concave/zoom
+
+            // Optional reveal.js plugins
+            dependencies: [
+                {
+                    src: 'lib/js/classList.js',
+                    condition: function () {
+                        return !document.body.classList;
+                    }
+                },
+                {
+                    src: 'plugin/highlight/highlight.js',
+                    async: true,
+                    callback: function () {
+                        hljs.initHighlightingOnLoad();
+                    }
+                }
+				]
+        });
+    </script>
+
+</body>
+
+</html>
