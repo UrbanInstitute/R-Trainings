@@ -86,7 +86,7 @@
             </section>
 
             <section>
-                <p><a href="http://api.census.gov/data/2000/sf3?get=NAME,P001001,P053001&for=state:*" target="_blank">http://api.census.gov/data/2000/sf3?get=NAME,P001001,P053001&for=state:*</a>
+                <p><a href="http://api.census.gov/data/2000/sf3?get=NAME,P001001,P053001&for=state:*" target="_blank">http://api.census.gov/data/2014/acs5?get=NAME,B01001_001E,B19013_001E&for=county:*</a>
                 </p>
                 <img class="fragment" src="img/webresponse.png">
             </section>
@@ -103,21 +103,25 @@ library("censusapi")
             </section>
 
             <section>
-                <h2>getCensus function</h2>
-                <h4>Four required arguments:</h4>
+                <h4>getCensus function required arguments:</h4>
 
-                <p class="fragment">1. apiurl
+                <p class="fragment">1. name
                     <pre class="fragment"><code class="hljs" data-trim contenteditable>
-"http://api.census.gov/data/2014/acs5"
+"acs5"
                 </code></pre>
                 </p>
-                <p class="fragment">2. key
-                    <br/>string emailed by Census</p>
-                <p class="fragment">3. vars
+                <p class="fragment">2. vintage - required for all datasets besides time series
                     <pre class="fragment"><code class="hljs" data-trim contenteditable>
-c("B01001_001E", "B19013_001E", "B17010_017E", "B17010_037E")
+2014
+                </code></pre>
+                </p>
+                <p class="fragment">3. key
+                    <br/>string emailed by Census</p>
+                <p class="fragment">4. vars
+                    <pre class="fragment"><code class="hljs" data-trim contenteditable>
+c("NAME", "B01001_001E", "B19013_001E", "B17010_017E", "B17010_037E")
                 </code></pre></p>
-                <p class="fragment">4. region
+                <p class="fragment">5. region
                     <pre class="fragment"><code class="hljs" data-trim contenteditable>
 "county:*"
                 </code></pre></p>
@@ -127,9 +131,10 @@ c("B01001_001E", "B19013_001E", "B17010_017E", "B17010_037E")
 
             <section>
                 <pre><code class="hljs" data-trim contenteditable>
-data2014 <- getCensus(apiurl="http://api.census.gov/data/2014/acs5", 
+data2014 <- getCensus(name="acs5", 
+    vintage=2014,
     key=censuskey, 
-    vars=c("B01001_001E", "B19013_001E",
+    vars=c("NAME", "B01001_001E", "B19013_001E",
     "B17010_017E", "B17010_037E"), 
     region="county:*")
 View(data2014)

@@ -50,7 +50,7 @@ View(geos2014)
 # View(vars2014)
 
 # Variables to get - total population, median household income, families w/ kids led by single moms who are below poverty, families w/ kids led by single moms who are at or above poverty
-myvars <- c("B01001_001E", "B19013_001E", "B17010_017E", "B17010_037E")
+myvars <- c("NAME", "B01001_001E", "B19013_001E", "B17010_017E", "B17010_037E")
 
 # Geography note: "*" means all available - so region="state:*" means all available states
 # Get data for all congressional districts
