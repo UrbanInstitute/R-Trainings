@@ -3,6 +3,8 @@
 # Retrieving Census data via API
 # Hannah Recht & Alex Engler
 
+# Slides: http://urbaninstitute.github.io/R-Trainings/accesing-census-apis/presentation/index.html#/
+
 # IMPORTANT: First, request a Census API key here and save the key: http://api.census.gov/data/key_signup.html
 # More information: http://www.census.gov/developers/
 ########################################################################################################
