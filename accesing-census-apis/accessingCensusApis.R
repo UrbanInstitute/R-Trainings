@@ -42,6 +42,7 @@ View(apis)
 # Variable info: http://api.census.gov/data/2014/acs5/variables/B17010_017E.json, http://api.census.gov/data/2014/acs5/variables/B17010_037M.json
 ########################################################################################################
 # Look at our geography options - lots available for the ACS
+# Information read in from http://api.census.gov/data/2014/acs5/geography.html
 geos2014 <- listCensusMetadata(name="acs5", vintage=2014,  type="g")
 View(geos2014)
 
@@ -57,7 +58,7 @@ myvars <- c("NAME", "B01001_001E", "B19013_001E", "B17010_017E", "B17010_037E")
 # Geography note: "*" means all available - so region="state:*" means all available states
 # Get data for all congressional districts
 data2014 <- getCensus(name="acs5", vintage=2014, key=censuskey, vars=myvars, region="congressional district:*")
-head(data2014)
+View(data2014)
 
 # All counties
 data2014 <- getCensus(name="acs5", vintage=2014, key=censuskey, vars=myvars, region="county:*")
@@ -79,32 +80,11 @@ library("ggplot2")
 library("dplyr")
 
 # Make a histogram
-ggplot(data=data2014, aes(x=fampov)) + geom_histogram(binwidth=.02, color="black", fill="white")
+ggplot(data=data2014, aes(x=fampov)) + geom_histogram(binwidth=.02, color="black", fill="#1696d2")
 
 # Boxplot by state for MD, VA, WV
 mvw <- data2014 %>% filter(state %in% c("24", "51", "54"))
 ggplot(data=mvw, aes(x=state, y=fampov)) + geom_boxplot()
-
-########################################################################################################
-# Advanced functions
-########################################################################################################
-
-# Get data within a specified state (fips code 06 = California)
-data2000 <- getCensus(name="sf3", vintage=2000, key=censuskey, vars=c("P001001", "P053001", "H063001"), region="county:*", regionin="state:06")
-head(data2000)
-
-data2014 <- getCensus(name="acs5", vintage=2014, key=censuskey, vars=c("B01001_001E", "B19013_001E", "B17010_017E", "B17010_037E"), region="public use microdata area:*", regionin="state:06")
-head(data2014)
-
-# Loop over all states for small geographies that are nested under state-level geography (e.g. tract)
-# Note: this might take a few minutes depending on your Internet speed
-tracts <- NULL
-for (f in fips) {
-	stateget <- paste("state:", f, sep="")
-	temp <- getCensus(name="acs5", vintage=2014, key=censuskey, vars=c("B01001_001E", "B19013_001E", "B17010_017E", "B17010_037E"), region="tract:*", regionin=stateget)
-	tracts <- rbind(tracts, temp)
-}
-head(tracts)
 
 ########################################################################################################
 # Additional example
@@ -131,10 +111,49 @@ listCensusMetadata(name="sf3", vintage=2000, "g")
 # Get data at county-level for all states
 data2000 <- getCensus(name="sf3", vintage=2000, key=censuskey, vars=myvars, region="county:*")
 head(data2000)
+data2000 <- data2000 %>% rename(income = P053001, rent = H063001, population = P001001)
 
 # Plot this data in a bubble chart:
-qplot(data=data2000, x=P053001, y=H063001, size=P053001, color=REGION, alpha=0.7)
+qplot(data=data2000, x=income, y=rent, size=population, color=REGION, alpha=0.7)
 
 # Or will small multiples:
-qplot(data=data2000, x=P053001, y=H063001, size=P053001, color=REGION, alpha=0.7) +
+qplot(data=data2000, x=income, y=rent, size=population, color=REGION, alpha=0.7) +
   facet_grid(facets = REGION~., scales="free_y")
+
+########################################################################################################
+# Advanced functions
+########################################################################################################
+
+# Get sub-state data within a specified state (fips code 06 = California)
+data2000 <- getCensus(name="sf3", vintage=2000, key=censuskey, vars=c("P001001", "P053001", "H063001"), region="county:*", regionin="state:06")
+head(data2000)
+
+data2014 <- getCensus(name="acs5", vintage=2014, key=censuskey, vars=c("B01001_001E", "B19013_001E", "B17010_017E", "B17010_037E"), region="public use microdata area:*", regionin="state:06")
+head(data2014)
+
+# Fips code list (all 50 states + DC + Puerto Rico) is included in the censusapi package - see it
+fips
+# Loop over all states for small geographies that are nested under state-level geography (e.g. tract)
+# Note: this might take a few minutes depending on your Internet speed
+tracts <- NULL
+# For all states in the fips list
+for (f in fips) {
+	# Define what state to get
+	stateget <- paste("state:", f, sep="")
+	# Get data for all tracts within that state
+	temp <- getCensus(name="acs5", vintage=2014, key=censuskey, vars=c("B01001_001E", "B19013_001E", "B17010_017E", "B17010_037E"), region="tract:*", regionin=stateget)
+	# Bind to existing data
+	tracts <- rbind(tracts, temp)
+}
+head(tracts)
+
+# Use makeVarlist function to return a list or data frame of variables containing a search word
+?makeVarlist #function info
+
+# Return a list of all variables with 'military' in the label field
+militaryvars <- makeVarlist(name="sf1", vintage=2000, find="military", varsearch="label")
+# Then use the getCensus function to retrieve those variables
+militarydt <- getCensus(name="sf1", vintage=2000, key=censuskey, vars=militaryvars, region="state:*")
+
+# Get metadata on all H16 variables
+vartable <- makeVarlist(name="sf1", vintage=2000, find="h16", varsearch="concept", output="dataframe")
