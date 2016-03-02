@@ -117,8 +117,8 @@ head(tracts)
 vars2000 <- listCensusMetadata(name="sf3", vintage=2000, "v")
 View(vars2000)
 
-# Variables to get - total population, median household income, median gross rent
-myvars <- c("P001001", "P053001", "H063001")
+# Variables to get - total population, median household income, median gross rent, Census Region
+myvars <- c("P001001", "P053001", "H063001", "REGION")
 
 # Get data at state-level
 data2000 <- getCensus(name="sf3", vintage=2000, key=censuskey, vars=myvars, region="state:*")
@@ -132,5 +132,9 @@ listCensusMetadata(name="sf3", vintage=2000, "g")
 data2000 <- getCensus(name="sf3", vintage=2000, key=censuskey, vars=myvars, region="county:*")
 head(data2000)
 
-# Plot median rent vs median household income
-plot(data2000$P053001, data2000$H063001)
+# Plot this data in a bubble chart:
+qplot(data=data2000, x=P053001, y=H063001, size=P053001, color=REGION, alpha=0.7)
+
+# Or will small multiples:
+qplot(data=data2000, x=P053001, y=H063001, size=P053001, color=REGION, alpha=0.7) +
+  facet_grid(facets = REGION~., scales="free_y")
