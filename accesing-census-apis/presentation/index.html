@@ -68,27 +68,35 @@
             </section>
 
             <section>
+                <p><a href="http://api.census.gov/data/2014/acs5?get=NAME,B01001_001E,B19013_001E&for=county:*" target="_blank">http://api.census.gov/data/2014/acs5?get=NAME,B01001_001E,B19013_001E&for=county:*</a>
+                </p>
+                <img class="fragment" src="img/webresponse.png">
+            </section>
+
+            <section>
+                <p><a href="http://www.census.gov/data/developers/data-sets.html" target="_blank">Over 100 available Census APIs</a>
+                </p>
+                <img src="img/availableapis.png">
+            </section>
+
+            <section>
                 <h2>API pros</h2>
                 <ul>
                     <li class="fragment">Get data directly from source</li>
                     <li class="fragment">Fully reproducible</li>
                     <li class="fragment">Retrieve lots of data at once</li>
                     <li class="fragment">Read data directly into R - no export/import</li>
+                    <li class="fragment">Don't need to save files locally</li>
                 </ul>
             </section>
             <section>
                 <h2>Cons</h2>
                 <ul>
+                    <li class="fragment">Requires an Internet connection</li>
                     <li class="fragment">Need to understand Census geographies and variables</li>
                 </ul>
                 <p class="fragment">R can do everything for you besides reading the documentation</p>
                 <p class="fragment">(But some functions can help with that)</p>
-            </section>
-
-            <section>
-                <p><a href="http://api.census.gov/data/2000/sf3?get=NAME,P001001,P053001&for=state:*" target="_blank">http://api.census.gov/data/2014/acs5?get=NAME,B01001_001E,B19013_001E&for=county:*</a>
-                </p>
-                <img class="fragment" src="img/webresponse.png">
             </section>
 
             <section>
@@ -128,8 +136,42 @@ c("NAME", "B01001_001E", "B19013_001E", "B17010_017E", "B17010_037E")
 
             </section>
 
+            <section>
+                <h2>How do we get information about those arguments?</h2>
+                <h3>METADATA</h3>
+            </section>
 
             <section>
+                <h3>Arguments: name and vintage</h3>
+                <a href="http://api.census.gov/data.html" target="_blank">http://api.census.gov/data.html</a>
+                <pre><code class="hljs" data-trim contenteditable>
+apis <- listCensusApis()
+View(apis)
+</code></pre>
+                <img class="fragment" src="img/rapis.png">
+            </section>
+
+
+            <section>
+                <h3>Argument: <a href="http://api.census.gov/data/2014/acs5/variables.html" target="_blank">variables</a></h3>
+                <pre><code class="hljs" data-trim contenteditable>
+vars2014 <- listCensusMetadata(name="acs5", vintage=2014, "v")
+View(vars2014)
+</code></pre>
+                <img class="fragment" src="img/vars2014.png">
+            </section>
+
+            <section>
+                <h3>Argument: <a href="http://api.census.gov/data/2014/acs5/geography.html" target="_blank">geography</a></h3>
+                <pre><code class="hljs" data-trim contenteditable>
+geos2014 <- listCensusMetadata(name="acs5", vintage=2014, "g")
+View(geos2014)
+</code></pre>
+                <img class="fragment" src="img/geos2014.png">
+            </section>
+
+            <section>
+                <h3>Putting it all together...</h3>
                 <pre><code class="hljs" data-trim contenteditable>
 data2014 <- getCensus(name="acs5", 
     vintage=2014,
@@ -140,6 +182,51 @@ data2014 <- getCensus(name="acs5",
 View(data2014)
                 </code></pre>
                 <img class="fragment" src="img/data2014.png">
+            </section>
+
+            <section>
+                <h3><a href="https://github.com/UrbanInstitute/R-Trainings/blob/gh-pages/accesing-census-apis/accessingCensusApis.R" target="_blank">Code!</a></h3>
+            </section>
+
+            <section>
+                <h3>Questions?</h3>
+            </section>
+            <section>
+                <h3>More government APIs!</h3>
+                <p><a href="https://api.data.gov/" target="_blank">https://api.data.gov/</a></p>
+            </section>
+
+            <section>
+                <h3>Advanced geography</a></h3>
+                <h4>region + regionin</h4>
+                <pre><code class="hljs" data-trim contenteditable>
+data2000 <- getCensus(name="sf3", vintage=2000, 
+key=censuskey, 
+vars=c("P001001", "P053001", "H063001"), 
+region="county:*", regionin="state:06")
+</code></pre>
+            </section>
+
+            <section>
+                <h3>Advanced geography</a></h3>
+                <h4>Looping over a list of states</h4>
+                <pre><code class="hljs" data-trim contenteditable>
+tracts <- NULL
+# For all states in the fips list
+for (f in fips) {
+    # Define what state to get
+    stateget <- paste("state:", f, sep="")
+    # Get data for all tracts within that state
+    temp <- getCensus(name="acs5", vintage=2014, 
+    key=censuskey, 
+    vars=c("B01001_001E", "B19013_001E", "B17010_017E", "B17010_037E"), 
+    region="tract:*", regionin=stateget)
+    # Bind to existing data
+    tracts <- rbind(tracts, temp)
+}
+View(tracts)
+</code></pre>
+                <p>Especially useful for tracts and blocks - can only get one state at a time</p>
             </section>
 
         </div>
