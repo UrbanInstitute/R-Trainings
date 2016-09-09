@@ -9,6 +9,15 @@
 # More information: http://www.census.gov/developers/
 ########################################################################################################
 
+# Install ggplot2 and dplyr
+# We'll use these two packages for working with data and graphing:
+# install.packages("ggplot2")
+# install.packages("dplyr")
+# Load libraries
+library(ggplot2)
+library(dplyr)
+
+
 # Paste the key that Census sent you - it should be a string of letters and numbers
 censuskey <- "PASTEYOURKEYHERE"
 
@@ -35,6 +44,45 @@ View(apis)
 # region (geography to use, e.g. 'county:*')
 
 ########################################################################################################
+<<<<<<< HEAD
+# 2000 decennial census API - we'll use Summary File 3
+# General information: http://www.census.gov/data/developers/data-sets/decennial-census-data.html
+# 2000 decennial datasets: http://api.census.gov/data/2000.html
+# "Summary File 3 consists of 813 detailed tables of Census 2000 social, economic and housing characteristics compiled from a sample of approximately 19 million housing units (about 1 in 6 households) that received the Census 2000 long-form questionnaire."
+########################################################################################################
+# URL of your API
+sf3_2000_api <- "http://api.census.gov/data/2000/sf3"
+# Let's see what variables are available - from http://api.census.gov/data/2000/sf3/variables.html
+vars2000 <- listCensusMetadata(sf3_2000_api, "v")
+View(vars2000)
+
+# Variables to get - total population, median household income, median gross rent
+myvars <- c("P001001", "P053001", "H063001","REGION")
+
+# Get data at state-level
+data2000 <- getCensus(apiurl=sf3_2000_api, key=censuskey, vars=myvars, region="state:*")
+# View first 6 rows
+head(data2000)
+
+# Let's look at some other geography options
+listCensusMetadata(sf3_2000_api, "g")
+
+# Get data at county-level for California
+data2000 <- getCensus(apiurl=sf3_2000_api, key=censuskey, vars=myvars, region="county:*&in=state:06")
+head(data2000)
+# Get data at county-level for all states
+data2000 <- getCensus(apiurl=sf3_2000_api, key=censuskey, vars=myvars, region="county:*")
+head(data2000)
+
+# Plot median rent vs median household income, population as circle size, colored by region:
+qplot(data=data2000, x=P053001, y=H063001, size=P001001, color=REGION)
+
+# Or small multiples:
+qplot(data=data2000, x=P053001, y=H063001, size=P001001, color=REGION, facets=REGION~.)
+
+########################################################################################################
+=======
+>>>>>>> 2f214285b95b4928ebde06b8afe31875bbf15acc
 # ACS most recent 5-year data - 2010-14
 # General information: http://www.census.gov/data/developers/data-sets/acs-survey-5-year-data.html
 
@@ -72,12 +120,6 @@ summary(data2014$fampov)
 ########################################################################################################
 # Let's graph the distribution of fampov
 ########################################################################################################
-# Install ggplot2 and dplyr
-# install.packages("ggplot2")
-# install.packages("dplyr")
-# Load libraries
-library("ggplot2")
-library("dplyr")
 
 # Make a histogram
 ggplot(data=data2014, aes(x=fampov)) + geom_histogram(binwidth=.02, color="black", fill="#1696d2")
@@ -86,6 +128,13 @@ ggplot(data=data2014, aes(x=fampov)) + geom_histogram(binwidth=.02, color="black
 mvw <- data2014 %>% filter(state %in% c("24", "51", "54"))
 ggplot(data=mvw, aes(x=state, y=fampov)) + geom_boxplot()
 
+<<<<<<< HEAD
+
+
+## Thoughts: Can I get a simple map in here?
+## Avoid ggplot2 full syntax and just say the next R thing will be a dataviz one?
+## How do people know the geography syntax?
+=======
 ########################################################################################################
 # Additional example
 # 2000 decennial census API - we'll use Summary File 3
@@ -157,3 +206,4 @@ militarydt <- getCensus(name="sf1", vintage=2000, key=censuskey, vars=militaryva
 
 # Get metadata on all H16 variables
 vartable <- makeVarlist(name="sf1", vintage=2000, find="h16", varsearch="concept", output="dataframe")
+>>>>>>> 2f214285b95b4928ebde06b8afe31875bbf15acc
