@@ -1,7 +1,7 @@
 #### Introdcution to R for Statistical Learning 
 #### Urban Institute Training
 ### Alex C. Engler
-### 8/19/2015
+### 9/9/2016
 
 ##############################################################
 
@@ -40,6 +40,7 @@ diamonds <- read.csv(file.choose(), header=TRUE)
 
 
 head(diamonds) # See first six rows.
+glimpse(diamonds) # Rotated display of the data (looks cleaner)
 str(diamonds) # See data structure
 
 

@@ -1,11 +1,11 @@
-### Introductory R Notes 
-
-### Data Visualization for Policy Analysis
+### Introductory R Tutorial & Notes 
 ### Alex C. Engler
 
-## Note: Turn on Word Wrap if the text extends past the edge of your screen (in Sublime: View >> Word Wrap, in RStudio: Preferences >> Code Editing >> Click the Check Box for 'Soft-wrap R Source Files").
+###################
+## R Terminology ##
+###################
 
-## R Terminology
+# This is a comment. Everything after a # (a hashtag) will have no effect if you run it in R. I have comments preceding all  the following commands to explain what they do.
 
 # Working Directory : The folder on your computer that R is currently working in. It will only check this folder for files to load, and will write any new files to this folder.
 
@@ -19,18 +19,23 @@
 
 hist(data$column, main = "A Histogram")
 
-# The function (hist makes a histogram) above is given two arguments, separated by a comma. The first is 'data$column', telling the histogram to use the data in this column to make a histogram. The second arguments is 'main = "A Histogram"', which is activating an option, and giving the histogram a main title.
+# The function (hist is a function for making a histogram) above is given two arguments, separated by a comma. The first is 'data$column', telling the histogram to use the data in this column to make a histogram. The second arguments is 'main = "A Histogram"', which is activating an option, and giving the histogram a main title.
 
-## This is a comment. Everything after a # (a hashtag) will have no effect if you run it in R. If you have opened this in sublime, the color also indicates comments. I have comments preceding all  the following commands to explain what they do.
+# Remember there are lots of sample data sets in R you can use to practice- you can see those by typing in data() and then looking at the list that appears
+# To load a sample data set already in R, type in data(name_of_dataset) to load it, and then you can refer to it by that name.
 
-## Remember there are lots of sample data sets in R you can use to practice- you can see those by typing in data() and then looking at the list that appears
-## To load a sample data set already in R, type in data(name_of_dataset) to load it, and then you can refer to it by that name.
+
+#######################
+## Introduction to R ##
+#######################
 
 ## You can do basic calculations in R
 
 2+2
 
 4*2
+
+5^3
 
 ## And you can save things as objects using the assignment operator: <-
 
@@ -82,31 +87,25 @@ pov <- read.csv(file.choose(), header = TRUE)
 ## If you type the name of the data as you saved it, the entire data file will appear. Remember the name of the data file, (in this case I used 'pov') is totally arbitrary, and can be anything you want it to be.
 
 pov
+# Alternatively, View(pov) will open a new window where you can see the data.
+
 
 ## Returns the first 6 lines of your data
-
 head(pov)
-head(pov, n=10)
-
-
-## Returns the last 6 lines of your data
-
-tail(pov)
-
+head(pov, n=10) # now 10 lines
 
 
 
 ## Returns the names of columns of your data
-
 colnames(pov)
 
 
 
-## Returns the number of rows, then columns, of your data. You can assume R is indicating rows first, then columns:
-
+## Returns the number of rows, then columns, of your data. You can generally assume R is indicating rows first, then columns:
 dim(pov)
 
 ## You can also specify individual rows and columns (again rows first and columns second) using brackets, like so:
+
 
 pov[1,1]
 ## returns the cell in the first row and first column
@@ -119,7 +118,7 @@ pov[2,2]
 
 
 
-## We've seen that the colon specifies a range.
+## The colon specifies a range.
 
 1:5
 ## returns 1,2,3,4,5
@@ -130,6 +129,8 @@ pov[2,2]
 pov[1:3,2]
 ## returns the first 3 rows of column 2
 
+pov[,2]
+## returns the entire second column
 
 ## There is also a shorthand syntax for referring to columns by the column names. Below, you can see the 'Country' column being referenced using the dollar sign '$' operator. This shorthand (dataframe$column_name) is very useful, and we will use it often.
 
@@ -138,18 +139,15 @@ pov$Country
 
 
 ## You can see how long the column is:
-
 length(pov$Country)
 
 
 
 ## Or get all the unique values in that column:
-
-unique(pov$Region)
+length(unique(pov$Region))
 
 
 ## Or make a frequency table to see all the unique values and how often they appear:
-
 table(pov$Region)
 
 
@@ -164,19 +162,29 @@ range(pov$GNP, na.rm=TRUE)
 fivenum(pov$LExpM) ## five number summary 
 
 
-## you can look at a histogram of that column
+## Column aggregations by group:
+aggregate(pov$GNP, by=list(pov$Region), FUN=mean, na.rm=TRUE)
+aggregate(pov$InfMort, by=list(pov$Region), FUN=median, na.rm=TRUE)
+aggregate(pov$LExpM, by=list(pov$Region), FUN=sd, na.rm=TRUE)
 
+
+## For indexing using column names - we use which()
+pov[which(pov$GNP > 20000), ]
+
+
+## Creating a new column:
+pov$DeathRt_over10 <- 0 # Set all values to 0
+pov$DeathRt_over10[which(pov$DeathRt > 10)] <- 1 # Conditionally change some to 1
+
+
+
+## You can look at a histogram of a column
 hist(pov$DeathRt)
-hist(pov$DeathRt, breaks=10)
-
-x = 6
-
-
+hist(pov$DeathRt, breaks=10) # Sets number of bins
 hist(pov$DeathRt, breaks=30, main = "Histogram of Country Death Rates")
 
 
-## you can plot two columns together in a scatterplot one another using
-
+## You can plot two columns together in a scatterplot using
 plot(pov$LExpM, pov$LExpF)
 
 
@@ -189,20 +197,76 @@ lim <- subset(pov, Region == "Europe Mostly")
 write.csv(lim, file = "new_file.csv", row.names=FALSE)
 
 
+
+
+
+## Model Specification
+model1 <- glm(LExpF ~ GNP, data=pov)
+summary(model1)
+
+model2 <- glm(BirthRt ~ GNP + InfMort, data=pov)
+summary(model2)
+
+model3 <- glm(BirthRt ~ log(GNP) + InfMort, data=pov)
+summary(model3)
+
+
+
+pov$Log_GNP <- log(pov$GNP)
+
+
+# Logistic Regression:
+model4 <- glm(DeathRt_over10 ~ Log_GNP + InfMort, data=pov, family="binomial")
+summary(model4)
+
+## Regression Diagnostics:
+coef(model1)
+fitted(model1)
+residuals(model1) 
+plot(model1)
+
+
+
+#### R operators:
 ## You can use the '&' operator to mean 'and'.
 ## You can use the '|' operator to mean 'or'.
-
+## Here's a list of R's Operators: http://www.statmethods.net/management/operators.html
 lim <- subset(pov, (Region == "Europe Mostly" & DeathRt_over10 == 1) |
 	(Region == "Asia" & InfMort < 15))
 
 
 
+###################################### 
+## Some really valuable R packages ##
+######################################
 
-pov[2,4] <- NA
-pov[5,4] <- NA
-pov[9,4] <- NA
+## A lot of great packages are covered in the new Free E-Book: R For Data Science
+## http://r4ds.had.co.nz/index.html
 
-sum(pov$GNP) ## sum
-sum(pov$GNP, na.rm=TRUE) ## sum
+## To install an R package, run:
+install.packages("package_name")
+## You only have to do this once.
 
-pov_lim <- subset(pov, !is.na(pov$GNP))
+## To load the functionality of that package into an R session, run:
+library("package_name")
+## You have to do this in every R session where you want to use this package.
+
+## Reading in SAS/STATA/SPSS Files w/ Haven
+
+install.packages("haven")
+library(haven)
+
+sas_data <- read_sas("path/to/file")
+stata_data <- read_dta("path/to/file")
+spss_data <- read_sav("path/to/file")
+## https://cran.r-project.org/web/packages/haven/README.html
+
+## Useful data manipulation with dplyr package
+## https://cran.rstudio.com/web/packages/dplyr/vignettes/introduction.html
+
+## Great data visualization with the ggplot2 package
+## http://tutorials.iq.harvard.edu/R/Rgraphics/Rgraphics.html
+
+## Here's a longer list of great packages:
+## https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages
+
